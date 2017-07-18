@@ -1,0 +1,12 @@
+employee-ws-api/.classpath
+employee-ws-api/.project
+employee-ws-api/.settings/*
+employee-ws-api/src/main/resources/com/rsingal/employee/xsdSchema/META-INF/*
+employee-ws-api/target/*
+
+employee-ws/.classpath
+employee-ws/.project
+employee-ws/.settings/*
+employee-ws/log/*
+employee-ws/target/*
+

@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.rsingal.employeeApp</groupId>
+	<artifactId>employee-ws-api</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- The identifier of the parent POM -->
+	<parent>
+		<groupId>com.rsingal</groupId>
+		<artifactId>employeeApp</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<build>
+		<plugins>
+			<!-- jaxb2-maven-plugin: Create XSD from Java files (mvn clean install) -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>schemagen</id>
+						<goals>
+							<goal>schemagen</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<includes>
+						<include>com/rsingal/employee/*</include>
+					</includes>
+					<schemaSourceExcludeFilters>
+						<myExcludes implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+							<patterns>
+								<pattern>NSConstants.java</pattern>
+							</patterns>
+						</myExcludes>
+					</schemaSourceExcludeFilters>
+					<transformSchemas>
+						<transformSchema>
+							<uri>http://www.rsingal-dev.com/employee/v1_0/createemployee</uri>
+							<toPrefix>ce</toPrefix>
+							<toFile>createEmployee-v1_0.xsd</toFile>
+						</transformSchema>
+						<transformSchema>
+							<uri>http://www.rsingal-dev.com/employee/v1_0/deleteemployee</uri>
+							<toPrefix>de</toPrefix>
+							<toFile>deleteEmployee-v1_0.xsd</toFile>
+						</transformSchema>
+						<transformSchema>
+							<uri>http://www.rsingal-dev.com/employee/v1_0/getemployee</uri>
+							<toPrefix>ge</toPrefix>
+							<toFile>getEmployee-v1_0.xsd</toFile>
+						</transformSchema>
+						<transformSchema>
+							<uri>http://www.rsingal-dev.com/employee/v1_0/updateemployee</uri>
+							<toPrefix>ue</toPrefix>
+							<toFile>updateEmployee-v1_0.xsd</toFile>
+						</transformSchema>
+						<transformSchema>
+							<uri>http://www.rsingal-dev.com/employee/common</uri>
+							<toPrefix>common</toPrefix>
+							<toFile>common.xsd</toFile>
+						</transformSchema>
+					</transformSchemas>
+					<outputDirectory>${basedir}/src/main/resources/com/rsingal/employee/xsdSchema</outputDirectory>
+					<createJavaDocAnnotations>false</createJavaDocAnnotations>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.1.Final</version>
+		</dependency>
+	</dependencies>
+
+</project>

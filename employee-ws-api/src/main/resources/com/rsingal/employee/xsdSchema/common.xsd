@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.rsingal-dev.com/employee/common" version="1.0">
+
+  <xs:element name="errorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="errorCode" type="xs:int"/>
+        <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+        <xs:element minOccurs="0" name="errorDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="errorDetail" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
