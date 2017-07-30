@@ -1,15 +1,18 @@
 # employeeApp
 - This project is a demo of a web service using Spring MVC and Hibernate, capable of processing JSON or XML requests.
-- Oracle XE-11.2.0 database is used, create schema as defined in "employee-ws/src/main/resources/com/rsingal/employee/dbSchema/createSchema.sql".
+- Oracle XE-11.2.0 database is used, create schema as defined in "employee-ws/src/main/resources/dbSchema/createSchema.sql".
 - Maven is used for build dependencies, with two modules - employee-ws-api and employee-ws having a parent employeeApp/pom.xml
 - employee-ws-api module has API's for Web Service, along with XSD of the API's and hibernate validators.
 - employee-ws module has spring controllers and communicate with DB using hibernate.
 - Build employee-ws-api to generate XSD using maven plugin: jaxb2-maven-plugin 
 	~/workspace/employeeApp/employee-ws-api > mvn clean install
-- Path of XSD: "employee-ws-api/src/main/resources/com/rsingal/employee/xsdSchema/*.xsd"
+- Path of XSD: "employee-ws-api/src/main/resources/xsdSchema/*.xsd"
 - Build and Run employee-ws module using maven:
 	~/workspace/employeeApp/employee-ws > mvn clean install
 	~/workspace/employeeApp/employee-ws > mvn clean tomcat7:run
+- Genarate HTML files for Java docs using:
+	~/workspace/employeeApp/employee-ws > mvn javadoc:javadoc
+- Path of HTML Java Docs: ~/workspace/employeeApp/employee-ws/src/main/resources/javaDocs/index.html
 - Below are some sample request and response of web service:
 ---------------------------------------------------------------------
 Positive Scenario's	

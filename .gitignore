@@ -1,3 +1,5 @@
+.project
+.settings/*
 employee-ws-api/.classpath
 employee-ws-api/.project
 employee-ws-api/.settings/*

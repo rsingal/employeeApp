@@ -4,6 +4,8 @@
 	<groupId>com.rsingal.employeeApp</groupId>
 	<artifactId>employee-ws</artifactId>
 	<packaging>war</packaging>
+	<name>${project.artifactId}</name>
+	<description>Employee web service using spring and hibernate</description>
 
 	<!-- The identifier of the parent POM -->
 	<parent>

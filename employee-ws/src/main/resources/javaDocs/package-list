@@ -1,0 +1,8 @@
+com.rsingal.employee.common
+com.rsingal.employee.controller.v1_0
+com.rsingal.employee.dao
+com.rsingal.employee.dao.bean
+com.rsingal.employee.entity
+com.rsingal.employee.exception
+com.rsingal.employee.manager
+com.rsingal.employee.manager.bean
